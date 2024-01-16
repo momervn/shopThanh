@@ -165,3 +165,15 @@ VNPAY_HASH_SECRET_KEY = 'HNMSIUPVHVMRCWLDQGQRBHRQXUSEOMAJ'  # Secret key for cre
 # Tên chủ thẻ	NGUYEN VAN A
 # Ngày phát hành	07/15
 # Mật khẩu OTP	123456
+
+# Forgot pass
+#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+#EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sgame4959@gmail.com'
+EMAIL_HOST_PASSWORD = 'mqexpioclawgikpg'
+#'shopgame11@#'
+
