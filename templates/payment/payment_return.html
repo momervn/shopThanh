@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ title }}: {{ result }}</div>
+            <div class="panel-body">
+                <p>Mã đơn hàng: {{ order_id }}</p>
+                <p>Tổng tiền:       {{ amount|floatformat:-3|intcomma }}đ</p>
+                <p>Nội dung:        {{ order_desc }}</p>
+                <p>Mã giao dịch:    {{ vnp_TransactionNo }}</p>
+                {% if vnp_ResponseCode == '00' %}
+                    <p>Trạng thái:      Thành công</p>
+                {% else %}
+                    <p>Trạng thái:      Lỗi</p>
+                {% endif %}
+                {% if msg %}
+                    <p class="alert-warning"> {{ msg }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

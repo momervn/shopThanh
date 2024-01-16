@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+    <section id="cart_items">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">Thanh Toán</li>
+                </ol>
+            </div><!--/breadcrums-->
+            {% if order.items.count > 0 %}
+                <div class="register-req">
+                    <p>Vui lòng điền thông tin đầy đủ để thuận tiện hơn trong việc vận chuyển đến tay quá khách hàng
+                        được
+                        chính xác!</p>
+                </div><!--/register-req-->
+                <div class="shopper-informations">
+                    <div class="row">
+                        <div class="col-sm-7 clearfix">
+                            <div class="bill-to">
+                                <p>Thông tin khách hàng</p>
+                                <div class="form-one">
+                                    <form>
+                                        <input type="text" value="{{ name }}" placeholder="Họ và tên *">
+                                        <input type="text" value="{{ email }}" placeholder="Email *">
+                                        <input type="text" value="{{ address }}" placeholder="Địa chỉ  *">
+                                    </form>
+                                </div>
+                                <div class="form-two">
+                                    <form>
+                                        <select>
+                                            <option>-- Thành Phố --</option>
+                                            <option value="An Giang">An Giang</option>
+                                            <option value="Bà rịa – Vũng tàu">Bà rịa – Vũng tàu</option>
+                                            <option value="Bắc Giang">Bắc Giang</option>
+                                            <option value="Bắc Kạn">Bắc Kạn</option>
+                                            <option value="Bạc Liêu">Bạc Liêu</option>
+                                            <option value="Bắc Ninh">Bắc Ninh</option>
+                                            <option value="Bến Tre">Bến Tre</option>
+                                            <option value="Bình Định">Bình Định</option>
+                                            <option value="Bình Dương">Bình Dương</option>
+                                            <option value="Bình Phước">Bình Phước</option>
+                                            <option value="Bình Thuận">Bình Thuận</option>
+                                            <option value="Cà Mau">Cà Mau</option>
+                                            <option value="Cần Thơ">Cần Thơ</option>
+                                            <option value="Cao Bằng">Cao Bằng</option>
+                                            <option value="Đà Nẵng">Đà Nẵng</option>
+                                            <option value="Đắk Lắk">Đắk Lắk</option>
+                                            <option value="Đắk Nông">Đắk Nông</option>
+                                            <option value="Điện Biên">Điện Biên</option>
+                                            <option value="Đồng Nai">Đồng Nai</option>
+                                            <option value="Đồng Tháp">Đồng Tháp</option>
+                                            <option value="Gia Lai">Gia Lai</option>
+                                            <option value="Hà Giang">Hà Giang</option>
+                                            <option value="Hà Nam">Hà Nam</option>
+                                            <option value="Hà Nội">Hà Nội</option>
+                                            <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                            <option value="Hải Dương">Hải Dương</option>
+                                            <option value="Hải Phòng">Hải Phòng</option>
+                                            <option value="Hậu Giang">Hậu Giang</option>
+                                            <option value="Hòa Bình">Hòa Bình</option>
+                                            <option value="Hưng Yên">Hưng Yên</option>
+                                            <option value="Khánh Hòa">Khánh Hòa</option>
+                                            <option value="Kiên Giang">Kiên Giang</option>
+                                            <option value="Kon Tum">Kon Tum</option>
+                                            <option value="Lai Châu">Lai Châu</option>
+                                            <option value="Lâm Đồng">Lâm Đồng</option>
+                                            <option value="Lạng Sơn">Lạng Sơn</option>
+                                            <option value="Lào Cai">Lào Cai</option>
+                                            <option value="Long An">Long An</option>
+                                            <option value="Nam Định">Nam Định</option>
+                                            <option value="Nghệ An">Nghệ An</option>
+                                            <option value="Ninh Bình">Ninh Bình</option>
+                                            <option value="Ninh Thuận">Ninh Thuận</option>
+                                            <option value="Phú Thọ">Phú Thọ</option>
+                                            <option value="Phú Yên">Phú Yên</option>
+                                            <option value="Quảng Bình">Quảng Bình</option>
+                                            <option value="Quảng Nam">Quảng Nam</option>
+                                            <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                            <option value="Quảng Ninh">Quảng Ninh</option>
+                                            <option value="Quảng Trị">Quảng Trị</option>
+                                            <option value="Sóc Trăng">Sóc Trăng</option>
+                                            <option value="Sơn La">Sơn La</option>
+                                            <option value="Tây Ninh">Tây Ninh</option>
+                                            <option value="Thái Bình">Thái Bình</option>
+                                            <option value="Thái Nguyên">Thái Nguyên</option>
+                                            <option value="Thanh Hóa">Thanh Hóa</option>
+                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                            <option value="Tiền Giang">Tiền Giang</option>
+                                            <option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí Minh</option>
+                                            <option value="Trà Vinh">Trà Vinh</option>
+                                            <option value="Tuyên Quang">Tuyên Quang</option>
+                                            <option value="Vĩnh Long">Vĩnh Long</option>
+                                            <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                            <option value="Yên Bái">Yên Bái</option>
+
+                                        </select>
+
+                                        <input type="text" value="{{ phone }}" placeholder=" Số điện thoại *">
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="order-message">
+                                <p>Ghi chú</p>
+                                <textarea name="message"
+                                          placeholder="Ghi chú về đơn đặt hàng của bạn, Ghi chú đặc biệt khi giao hàng"
+                                          rows="10">{{ note }}</textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-payment">
+                    <h2>Xem Lại & Thanh Toán</h2>
+                </div>
+
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Sản phẩm</td>
+                            <td class="description"></td>
+                            <td class="price">Giá</td>
+                            <td class="quantity">Số Lượng</td>
+                            <td class="total">Tổng</td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order_item in order.items.all %}
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img style="width: 70px;height: 70px;margin: 0 30px 0 0;"
+                                                    src="{{ order_item.product.img.url }}" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">{{ order_item.product.name |capfirst }}</a></h4>
+
+                                </td>
+                                <td class="cart_price">
+                                    <p style="color:#fd475a;">{{ order_item.product.price|floatformat:-3|intcomma }}đ</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <a class="cart_quantity_down"
+                                           href="{% url 'remove_item' order_item.product.pk %}">
+                                            - </a>
+                                        <input class="cart_quantity_input" type="text" name="quantity"
+                                               value="{{ order_item.quantity }}" autocomplete="off" size="2">
+                                        <a class="cart_quantity_up" href="{% url 'add_item' order_item.product.pk %}">
+                                            + </a>
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p style="color:#fd475a;"
+                                       class="cart_total_price">{{ order_item.get_total_item_price|floatformat:-3|intcomma }}đ</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {% if order.get_total_price %}
+                            <tr>
+                                <td colspan="4">&nbsp;</td>
+                                <td colspan="2">
+                                    <table class="table table-condensed total-result">
+                                        <tr>
+                                            <td>Tổng số mặt hàng</td>
+                                            <td>{{ order.get_total_count }}</td>
+                                        </tr>
+
+                                        <tr class="shipping-cost">
+                                            <td>Phí Ship</td>
+                                            <td>Free</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tổng</td>
+                                            <td><span>{{ order.get_total_price|floatformat:-3|intcomma }}đ</span></td>
+                                        </tr>
+                                        <tr>
+
+                                            {#                                        <td><span><a class="btn btn-default check_out"#}
+                                            {#                                                     href="{% url 'payment' %}">Thanh Toán Khi Nhận Hàng</a></span>#}
+                                            {#                                        </td>#}
+                                            <td>
+                                           <span><a class="btn btn-default check_out"
+                                                    href="{% url 'payment' %}">Thanh Toán Qua Ví Điện Tử</a></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="register-req">
+                    <p>Không có sản phẩm nào trong giỏ hàng. Vui lòng thêm sản phẩm vào giỏ hàng để tiếp tục thanh
+                        toán!</p>
+                </div><!--/register-req-->
+            {% endif %}
+
+
+        </div>
+    </section>
+
+    <script>
+
+    </script>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="form"><!--form-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7 col-sm-offset-4">
+            <img  src="/media/product/home.png" alt="">
+            <div style="border: 1px solid black; padding-bottom: 10px; border-radius: 10px;">
+                <div class="row">
+                    <div style="margin-top: 100px;" class="col-md-5 h-100 text-center">
+                        <img style="width: 100px;" src="/media/product/login.png" alt="" srcset="">
+                    </div>
+                    <div class="col-md-7 text-center">
+                        <h2 style="text-align: center">Đăng Nhập</h2>
+    {#                {% if messages %}#}
+    {#                    {% for mess in messages   %}#}
+    {##}
+    {#                    <p style="color: red">{{ mess }}</p>#}
+    {#                    {% endfor %}#}
+    {##}
+    {#                {% endif %}#}
+                        <form  method="post">
+                            {%  csrf_token %}
+                            <div style="">
+                                <input style="width: 90%; border: 1px solid black; border-radius: 5px; margin-bottom: 10px;" type="text" name="username" id="username" placeholder="Tên đăng nhập">
+                            </div>
+                            <div style="">
+                                <input style="width: 90%; border: 1px solid black; border-radius: 5px; margin-bottom: 10px;" type="password" name="password" id="password" placeholder="Mật khẩu">
+                            </div>
+                            <div style="padding: 0px 14px; display: flex; justify-content: left;margin-bottom: 10px;">
+                                <input class="toggle-password" type="checkbox" onclick="togglePassword()"><span style="margin-left: 15px;">  Hiển thị mật khẩu</span>
+                            </div>
+                            <div style="padding: 0px 14px; display: flex; justify-content: space-between;">
+                                <a href="#">Quên mật khẩu?</a>
+                                <a href="{% url 'user_register' %}">Tạo tài khoản</a>
+                            </div>
+                            <button style="background-color: #FE980F; width: 90%; margin: 15px 15px" type="submit" class="btn btn-default">Đăng Nhập</button>
+                            <div style="">
+                                <span style="">Hoặc đăng nhập bằng</span>
+                            </div>
+                            <div style="padding: 0px 14px; margin: 15px 15px ">
+                                <a href="#"><img style="width: 30px;" src="/media/product/facebookLogo.png" alt="" srcset=""></a>
+                                <a href="#"><img style="width: 30px;" src="/media/product/googleLogo.png" alt="" srcset=""</a>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+            </div><!--/login form-->
+        </div>
+        <script>
+            function togglePassword() {
+              var passwordInput = document.getElementById("password");
+              var toggleButton = document.querySelector(".toggle-password");
+          
+              if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.textContent = "Hide";
+              } else {
+                passwordInput.type = "password";
+                toggleButton.textContent = "Show";
+              }
+            }
+          </script>
+        </div>
+    </div>
+</div>
+</section><!--/form-->
+{% endblock content %}
+
+
+
+
+
+
+

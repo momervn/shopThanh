@@ -1,0 +1,59 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section id="form"><!--form-->
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6 col-sm-offset-4">
+            <img src="/media/product/home.png" alt="" srcset="">
+            
+            <div style="border: 1px solid black; padding-bottom: 10px; border-radius: 10px;">
+                <h2 style=" border-radius: 10px 10px 0 0 ;margin: 0; background-color: #FE980F; text-align: center; border-bottom: 1px solid black;padding-bottom: 10px;">Đăng Kí</h2>
+                    {% if messages %}
+                    {% for mess in messages   %}
+
+                    <p style="color: red">{{ mess }}</p>
+                    {% endfor %}
+
+                    {% endif %}
+                <form method="post">
+                    {%  csrf_token %}
+                    <div class="form-group col-md-6">
+                        <label for="username">Họ và tên:</label>
+                        <input name="username" type="text" class=" form-control" id="username">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email:</label>
+                        <input name="email" type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Mật khẩu:</label>
+                        <input name="password" type="password" class="form-control" id="password">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-check-label">Giới Tính</label>
+                        <select class="form-control">
+                            <option selected>Nữ</option>
+                            <option>Nam</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">Địa chỉ:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone_field">Số điện thoại:</label>
+                        <input name="phone_field" type="tel" class="form-control" id="phone_field">
+                    </div>
+                    <hr  width="93%" size="10px" color="black" align="center" />
+                    <input value="Đăng kí" type="submit" style="margin-top: 0; margin-left: 15px; width: 143px;" class="btn btn-primary">
+                    <input value="Hủy" type="reset"" class="btn btn-default">
+                </form>
+            </div>
+    </div>
+</div>
+</section><!--/form-->
+{% endblock content%}
+
+
